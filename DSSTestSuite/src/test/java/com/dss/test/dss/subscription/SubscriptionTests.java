@@ -19,8 +19,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 /**
- * ------- SubscriptionTests ------- 
- * Author: QA-DART 
+ * ------- SubscriptionTests -------
+ * Author: QA-DART
  * Created on: 17-May-2016
  * History of Changes: File created for holding TestNG tests
  */
@@ -45,28 +45,34 @@ public class SubscriptionTests {
 
 	}
 
-	@Test(enabled = false)
-	public void BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithSSOR() throws InterruptedException {
+	@Test(dataProvider = "dssDataProviderWithInAreaZIPSSOR", dataProviderClass = DSSDataProvider.class, enabled = false)
+	public void BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithSSOR(String withInAreaZIP, String email, String CCName,
+			String CCNumber, String CCMonth, String CCYear, String userFirstName, String userLastName,
+			String userAddress1, String userAddress2, String UserZIP, String UserCity, String UserState,
+			String userPhonenmum, String pass) throws InterruptedException {
 
 		String thankYouMessage;
 
 		OSHomePage.goToSubscriptionsFromHomepage();
-		OSSubscriptionPage.addPrintDigitalPlusAccessWithinArea("32801");
-		OSCheckoutPage.enterDigitalAccessSSOR("jan12@gmail.com");
-		OSCheckoutPage.payWithCreditCard("TestCreditCard", "4111 1111 1111 1111", "05 - May", "2018");
+		OSSubscriptionPage.addPrintDigitalPlusAccessWithinArea(withInAreaZIP);
+		OSCheckoutPage.enterDigitalAccessSSOR(email);
+		OSCheckoutPage.payWithCreditCard(CCName, CCNumber, CCMonth, CCYear);
 
-		OSCheckoutPage.enterAddressWhenBillingAndDeliveryInformationSame("James", "Hogger", "125 nimes rd st church",
-				"", "32801", "Orlando", "FL", "8888888888");
+		OSCheckoutPage.enterAddressWhenBillingAndDeliveryInformationSame(userFirstName, userLastName, userAddress1,
+				userAddress2, UserZIP, UserCity, UserState, userPhonenmum);
 		OSCheckoutPage.placeOrder();
-		OSCheckoutPage.navigateToHomepageStory("jan12@gmail.com", "tribune1");
+		OSCheckoutPage.navigateToHomepageStory(email, pass);
 
 		thankYouMessage = OSHomePage.getThankYouPanelMessage();
 		Assert.assertEquals("Welcome to orlandosentinel.com. You are now subscribed.", thankYouMessage);
 
 	}
 
-	@Test(enabled = false)
-	public void BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithNonSSOR() throws InterruptedException {
+	@Test(dataProvider = "dssDataProviderWithInAreaZIPNonSSOR", dataProviderClass = DSSDataProvider.class, enabled = false)
+	public void BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithNonSSOR(String withInAreaZIP, String pass,
+			String BankName, String BankAccountNumber, String BankRoutingNumber, String userFirstName,
+			String userLastName, String userAddress1, String userAddress2, String UserZIP, String UserCity,
+			String UserState, String userPhonenmum) throws InterruptedException {
 
 		String thankYouMessage;
 		Random random = new Random();
@@ -75,42 +81,48 @@ public class SubscriptionTests {
 		String email = "jan" + randomnum + "@gmail.com";
 
 		OSHomePage.goToSubscriptionsFromHomepage();
-		OSSubscriptionPage.addPrintDigitalPlusAccessWithinArea("32801");
-		OSCheckoutPage.enterDigitalAccessNonSSOR(email, "tribune1", "tribune1");
-		OSCheckoutPage.payWithMyBankAccount("USSA", "1234567895", "071923909");
+		OSSubscriptionPage.addPrintDigitalPlusAccessWithinArea(withInAreaZIP);
+		OSCheckoutPage.enterDigitalAccessNonSSOR(email, pass, pass);
+		OSCheckoutPage.payWithMyBankAccount(BankName, BankAccountNumber, BankRoutingNumber);
 
-		OSCheckoutPage.enterAddressWhenBillingAndDeliveryInformationSame("James", "Hogger", "125 nimes rd st church",
-				"", "32801", "Orlando", "FL", "8888888888");
+		OSCheckoutPage.enterAddressWhenBillingAndDeliveryInformationSame(userFirstName, userLastName, userAddress1,
+				userAddress2, UserZIP, UserCity, UserState, userPhonenmum);
 		OSCheckoutPage.placeOrder();
-		OSCheckoutPage.navigateToHomepageStory(email, "tribune1");
+		OSCheckoutPage.navigateToHomepageStory(email, pass);
 
 		thankYouMessage = OSHomePage.getThankYouPanelMessage();
 		Assert.assertEquals("Welcome to orlandosentinel.com. You are now subscribed.", thankYouMessage);
 
 	}
 
-	@Test(enabled = false)
-	public void BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithSSOR() throws InterruptedException {
+	@Test(dataProvider = "dssDataProviderOutsideAreaZIPSSOR", dataProviderClass = DSSDataProvider.class, enabled = false)
+	public void BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithSSOR(String outSideAreaZIP, String email,
+			String BankName, String BankAccountNumber, String BankRoutingNumber, String userFirstName,
+			String userLastName, String userAddress1, String userAddress2, String UserZIP, String UserCity,
+			String UserState, String userPhonenmum, String pass) throws InterruptedException {
 
 		String thankYouMessage;
 
 		OSHomePage.goToSubscriptionsFromHomepage();
-		OSSubscriptionPage.addPrintDigitalPlusAccessOutsideArea("90012");
-		OSCheckoutPage.enterDigitalAccessSSOR("jan12@gmail.com");
-		OSCheckoutPage.payWithMyBankAccount("USSA", "1234567895", "071923909");
+		OSSubscriptionPage.addPrintDigitalPlusAccessOutsideArea(outSideAreaZIP);
+		OSCheckoutPage.enterDigitalAccessSSOR(email);
+		OSCheckoutPage.payWithMyBankAccount(BankName, BankAccountNumber, BankRoutingNumber);
 
-		OSCheckoutPage.enterAddressWhenBillingAndDeliveryInformationSame("James", "Hogger", "125 nimes rd st church",
-				"", "32801", "Orlando", "FL", "8888888888");
+		OSCheckoutPage.enterAddressWhenBillingAndDeliveryInformationSame(userFirstName, userLastName, userAddress1,
+				userAddress2, UserZIP, UserCity, UserState, userPhonenmum);
 		OSCheckoutPage.placeOrder();
-		OSCheckoutPage.navigateToHomepageStory("jan12@gmail.com", "tribune1");
+		OSCheckoutPage.navigateToHomepageStory(email, pass);
 
 		thankYouMessage = OSHomePage.getThankYouPanelMessage();
 		Assert.assertEquals("Welcome to orlandosentinel.com. You are now subscribed.", thankYouMessage);
 
 	}
 
-	@Test(dataProvider="dssDataProvider", dataProviderClass=DSSDataProvider.class ,enabled = true)
-	public void BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithNonSSOR(String outSideAreaZIP, String pass, String CCName, String CCNumber, String CCMonth, String CCYear, String userFirstName, String userLastName, String userAddress1, String userAddress2, String UserZIP,String UserCity, String UserState, String userPhonenmum) throws InterruptedException {
+	@Test(dataProvider = "dssDataProviderOutsideAreaZIPNonSSOR", dataProviderClass = DSSDataProvider.class, enabled = false)
+	public void BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithNonSSOR(String outSideAreaZIP, String pass,
+			String CCName, String CCNumber, String CCMonth, String CCYear, String userFirstName, String userLastName,
+			String userAddress1, String userAddress2, String UserZIP, String UserCity, String UserState,
+			String userPhonenmum) throws InterruptedException {
 
 		String thankYouMessage;
 
@@ -128,7 +140,59 @@ public class SubscriptionTests {
 				userAddress2, UserZIP, UserCity, UserState, userPhonenmum);
 		OSCheckoutPage.placeOrder();
 		OSCheckoutPage.navigateToHomepageStory(email, pass);
-		
+
+		thankYouMessage = OSHomePage.getThankYouPanelMessage();
+		Assert.assertEquals("Welcome to orlandosentinel.com. You are now subscribed.", thankYouMessage);
+
+	}
+
+	@Test(dataProvider = "dssDataProviderDigitalPlusSSOR", dataProviderClass = DSSDataProvider.class, enabled = true)
+	public void BuydigitalSubscriptionWithSSOR(String subscription, String email, String CCName, String CCNumber, String CCMonth,
+			String CCYear, String userFirstName, String userLastName, String userAddress1, String userAddress2,
+			String UserZIP, String UserCity, String UserState, String userPhonenmum, String pass)
+					throws InterruptedException {
+
+		String thankYouMessage;
+
+		OSHomePage.goToSubscriptionsFromHomepage();
+		OSSubscriptionPage.addDigitalPlusSubscription();
+		OSCheckoutPage.selectPackage(driver,subscription);
+		OSCheckoutPage.enterDigitalAccessSSOR(email);
+		OSCheckoutPage.payWithCreditCard(CCName, CCNumber, CCMonth, CCYear);
+
+		OSCheckoutPage.enterAddressWhenBillingAndDeliveryInformationSame(userFirstName, userLastName, userAddress1,
+				userAddress2, UserZIP, UserCity, UserState, userPhonenmum);
+		OSCheckoutPage.placeOrder();
+		OSCheckoutPage.navigateToHomepageStory(email, pass);
+
+		thankYouMessage = OSHomePage.getThankYouPanelMessage();
+		Assert.assertEquals("Welcome to orlandosentinel.com. You are now subscribed.", thankYouMessage);
+
+	}
+
+	@Test(dataProvider = "dssDataProviderDigitalPlusNonSSOR", dataProviderClass = DSSDataProvider.class, enabled = false)
+	public void BuydigitalSubscriptionWithNonSSOR(String subscription, String pass, String BankName, String BankAccountNumber,
+			String BankRoutingNumber, String userFirstName, String userLastName, String userAddress1,
+			String userAddress2, String UserZIP, String UserCity, String UserState, String userPhonenmum)
+					throws InterruptedException {
+
+		String thankYouMessage;
+
+		Random random = new Random();
+		int randomnum = random.nextInt();
+
+		String email = "jan" + randomnum + "@gmail.com";
+
+		OSHomePage.goToSubscriptionsFromHomepage();
+		OSSubscriptionPage.addDigitalPlusSubscription();
+		OSCheckoutPage.selectPackage(driver,subscription);
+		OSCheckoutPage.enterDigitalAccessNonSSOR(email, pass, pass);
+		OSCheckoutPage.payWithMyBankAccount(BankName, BankAccountNumber, BankRoutingNumber);
+
+		OSCheckoutPage.enterAddressWhenBillingAndDeliveryInformationSame(userFirstName, userLastName, userAddress1,
+				userAddress2, UserZIP, UserCity, UserState, userPhonenmum);
+		OSCheckoutPage.placeOrder();
+		OSCheckoutPage.navigateToHomepageStory(email, pass);
 
 		thankYouMessage = OSHomePage.getThankYouPanelMessage();
 		Assert.assertEquals("Welcome to orlandosentinel.com. You are now subscribed.", thankYouMessage);

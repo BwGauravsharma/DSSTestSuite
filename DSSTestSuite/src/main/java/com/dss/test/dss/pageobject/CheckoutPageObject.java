@@ -22,7 +22,7 @@ public abstract class CheckoutPageObject {
 		this.driver = driver;
 	}
 
-	public abstract void selectPackage();
+	public abstract void selectPackage(WebDriver driver, String subscription);
 
 	private void login(String email, String password) {
 
