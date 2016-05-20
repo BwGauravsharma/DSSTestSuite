@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test name="DSS-Regression(failed)">
+    <classes>
+      <class name="com.dss.test.dss.subscription.SubscriptionTests">
+        <methods>
+          <include name="BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithNonSSOR"/>
+        </methods>
+      </class> <!-- com.dss.test.dss.subscription.SubscriptionTests -->
+    </classes>
+  </test> <!-- DSS-Regression(failed) -->
+</suite> <!-- Failed suite [Suite] -->
