@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="95.185">
+           time="0.007">
   <properties />
   
   
-            <testcase name="BuydigitalSubscriptionWithSSOR" time="95.185" classname="com.dss.test.dss.subscription.SubscriptionTests" />
+            <testcase name="BuydigitalSubscriptionWithSSORThroughSubscribePanel" time="0.007" classname="com.dss.test.dss.subscription.SubscriptionTests" />
       
 </testsuite>

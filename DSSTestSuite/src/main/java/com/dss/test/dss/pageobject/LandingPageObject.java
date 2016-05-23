@@ -9,6 +9,6 @@ package com.dss.test.dss.pageobject;
 public abstract class LandingPageObject {
     
     public abstract boolean isSubscriptionPopUpDisplayed() throws InterruptedException;
-
+    
     
 }

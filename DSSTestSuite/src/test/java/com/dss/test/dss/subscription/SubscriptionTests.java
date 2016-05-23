@@ -7,6 +7,7 @@ import com.dss.test.dss.pageobject.OSentinelCheckoutPageObject;
 import com.dss.test.dss.pageobject.OSentinelHomepagePageObject;
 import com.dss.test.dss.pageobject.OSentinelSubscriptionPageObject;
 import com.dss.test.properties.DSSProperties;
+import com.dss.test.utilities.DSSUtilities;
 
 import junit.framework.Assert;
 
@@ -16,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
 /**
@@ -30,6 +32,7 @@ public class SubscriptionTests {
 	private OSentinelHomepagePageObject OSHomePage;
 	private OSentinelSubscriptionPageObject OSSubscriptionPage;
 	private OSentinelCheckoutPageObject OSCheckoutPage;
+	private DSSUtilities util;
 
 	@BeforeMethod
 	public void beforeTest() {
@@ -40,8 +43,9 @@ public class SubscriptionTests {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		OSHomePage = new OSentinelHomepagePageObject(driver);
-		OSSubscriptionPage = new OSentinelSubscriptionPageObject(driver);
+		//OSSubscriptionPage = new OSentinelSubscriptionPageObject(driver);
 		OSCheckoutPage = new OSentinelCheckoutPageObject(driver);
+		util = new DSSUtilities();
 
 	}
 
@@ -53,7 +57,7 @@ public class SubscriptionTests {
 
 		String thankYouMessage;
 
-		OSHomePage.goToSubscriptionsFromHomepage();
+		OSSubscriptionPage = OSHomePage.goToSubscriptionsFromHomepage();
 		OSSubscriptionPage.addPrintDigitalPlusAccessWithinArea(withInAreaZIP);
 		OSCheckoutPage.enterDigitalAccessSSOR(email);
 		OSCheckoutPage.payWithCreditCard(CCName, CCNumber, CCMonth, CCYear);
@@ -147,7 +151,7 @@ public class SubscriptionTests {
 	}
 
 	@Test(dataProvider = "dssDataProviderDigitalPlusSSOR", dataProviderClass = DSSDataProvider.class, enabled = true)
-	public void BuydigitalSubscriptionWithSSOR(String subscription, String email, String CCName, String CCNumber, String CCMonth,
+	public void BuydigitalPlusSubscriptionWithSSOR(String subscription, String email, String CCName, String CCNumber, String CCMonth,
 			String CCYear, String userFirstName, String userLastName, String userAddress1, String userAddress2,
 			String UserZIP, String UserCity, String UserState, String userPhonenmum, String pass)
 					throws InterruptedException {
@@ -171,7 +175,7 @@ public class SubscriptionTests {
 	}
 
 	@Test(dataProvider = "dssDataProviderDigitalPlusNonSSOR", dataProviderClass = DSSDataProvider.class, enabled = false)
-	public void BuydigitalSubscriptionWithNonSSOR(String subscription, String pass, String BankName, String BankAccountNumber,
+	public void BuydigitalPlusSubscriptionWithNonSSOR(String subscription, String pass, String BankName, String BankAccountNumber,
 			String BankRoutingNumber, String userFirstName, String userLastName, String userAddress1,
 			String userAddress2, String UserZIP, String UserCity, String UserState, String userPhonenmum)
 					throws InterruptedException {
@@ -198,12 +202,22 @@ public class SubscriptionTests {
 		Assert.assertEquals("Welcome to orlandosentinel.com. You are now subscribed.", thankYouMessage);
 
 	}
-
+	
 	@AfterMethod
 	public void afterTest() {
 
 		driver.quit();
 
+	}
+	
+	
+	@AfterSuite
+	public void afterSuite() throws Exception{
+		
+		util.zipFolder(DSSProperties.SOURCE_FOLDER,DSSProperties.DESTINATION_FOLDER_NAME);
+
+		util.sendEmailReport(DSSProperties.FromAddress, DSSProperties.ToAddress, DSSProperties.SubjectLine, DSSProperties.BodyMessage);
+		
 	}
 
 }

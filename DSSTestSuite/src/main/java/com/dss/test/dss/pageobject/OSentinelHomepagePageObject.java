@@ -6,10 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-
 /**
- * ------- OSentinelHomepagePageObject ------- 
- * Author: QA-DART 
+ * ------- OSentinelHomepagePageObject -------
+ * Author: QA-DART
  * Created on: 18-May-2016
  * History of Changes: Page Object for OS Homepage
  */
