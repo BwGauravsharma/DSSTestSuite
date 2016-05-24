@@ -84,7 +84,7 @@ public class SubscriptionTests {
 
 		String email = "jan" + randomnum + "@gmail.com";
 
-		OSHomePage.goToSubscriptionsFromHomepage();
+		OSSubscriptionPage = OSHomePage.goToSubscriptionsFromHomepage();
 		OSSubscriptionPage.addPrintDigitalPlusAccessWithinArea(withInAreaZIP);
 		OSCheckoutPage.enterDigitalAccessNonSSOR(email, pass, pass);
 		OSCheckoutPage.payWithMyBankAccount(BankName, BankAccountNumber, BankRoutingNumber);
@@ -107,7 +107,7 @@ public class SubscriptionTests {
 
 		String thankYouMessage;
 
-		OSHomePage.goToSubscriptionsFromHomepage();
+		OSSubscriptionPage = OSHomePage.goToSubscriptionsFromHomepage();
 		OSSubscriptionPage.addPrintDigitalPlusAccessOutsideArea(outSideAreaZIP);
 		OSCheckoutPage.enterDigitalAccessSSOR(email);
 		OSCheckoutPage.payWithMyBankAccount(BankName, BankAccountNumber, BankRoutingNumber);
@@ -135,7 +135,7 @@ public class SubscriptionTests {
 
 		String email = "jan" + randomnum + "@gmail.com";
 
-		OSHomePage.goToSubscriptionsFromHomepage();
+		OSSubscriptionPage = OSHomePage.goToSubscriptionsFromHomepage();
 		OSSubscriptionPage.addPrintDigitalPlusAccessOutsideArea(outSideAreaZIP);
 		OSCheckoutPage.enterDigitalAccessNonSSOR(email, pass, pass);
 		OSCheckoutPage.payWithCreditCard(CCName, CCNumber, CCMonth, CCYear);
@@ -158,7 +158,7 @@ public class SubscriptionTests {
 
 		String thankYouMessage;
 
-		OSHomePage.goToSubscriptionsFromHomepage();
+		OSSubscriptionPage = OSHomePage.goToSubscriptionsFromHomepage();
 		OSSubscriptionPage.addDigitalPlusSubscription();
 		OSCheckoutPage.selectPackage(driver,subscription);
 		OSCheckoutPage.enterDigitalAccessSSOR(email);
@@ -187,7 +187,7 @@ public class SubscriptionTests {
 
 		String email = "jan" + randomnum + "@gmail.com";
 
-		OSHomePage.goToSubscriptionsFromHomepage();
+		OSSubscriptionPage = OSHomePage.goToSubscriptionsFromHomepage();
 		OSSubscriptionPage.addDigitalPlusSubscription();
 		OSCheckoutPage.selectPackage(driver,subscription);
 		OSCheckoutPage.enterDigitalAccessNonSSOR(email, pass, pass);
@@ -206,6 +206,7 @@ public class SubscriptionTests {
 	@AfterMethod
 	public void afterTest() {
 
+		
 		driver.quit();
 
 	}
