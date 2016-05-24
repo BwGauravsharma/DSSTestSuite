@@ -195,6 +195,7 @@ public class SubscriptionTests {
 
 		OSCheckoutPage.enterAddressWhenBillingAndDeliveryInformationSame(userFirstName, userLastName, userAddress1,
 				userAddress2, UserZIP, UserCity, UserState, userPhonenmum);
+		
 		OSCheckoutPage.placeOrder();
 		OSCheckoutPage.navigateToHomepageStory(email, pass);
 
