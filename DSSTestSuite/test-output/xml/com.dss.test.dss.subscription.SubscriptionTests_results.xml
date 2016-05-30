@@ -1,81 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DSS-Regression"
-           tests="1"
-           failures="1"
+<testsuite name="DSS-Regression With Chrome"
+           tests="6"
+           failures="0"
            errors="0"
            skipped="0"
-           time="137.638">
+           time="606.904">
   <properties />
-            <testcase name="BuydigitalPlusSubscriptionWithSSOR" time="137.638" classname="com.dss.test.dss.subscription.SubscriptionTests">
-                <failure type="org.openqa.selenium.NoSuchElementException"
-                  message="Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;reg-overlay&apos;]/div/div[2]/p&quot;}
-Command duration or timeout: 30.82 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
-System info: host: &apos;U3-DPE-CPB-0153&apos;, ip: &apos;10.20.121.78&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_45&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=40.0.3, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: e50107ab-4999-40b2-a47d-c66fe1699b96
-*** Element info: {Using=xpath, value=//*[@id=&apos;reg-overlay&apos;]/div/div[2]/p}"
-              >
-<![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":"//*[@id='reg-overlay']/div/div[2]/p"}
-Command duration or timeout: 30.82 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
-System info: host: 'U3-DPE-CPB-0153', ip: '10.20.121.78', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=40.0.3, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: e50107ab-4999-40b2-a47d-c66fe1699b96
-*** Element info: {Using=xpath, value=//*[@id='reg-overlay']/div/div[2]/p}
-  sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-  sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-  sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-  java.lang.reflect.Constructor.newInstance(Constructor.java:422)
-  org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-  org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-  org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-  org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-  org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
-  org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-  org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-  com.dss.test.dss.pageobject.OSentinelHomepagePageObject.getThankYouPanelMessage(OSentinelHomepagePageObject.java:37)
-  com.dss.test.dss.subscription.SubscriptionTests.BuydigitalPlusSubscriptionWithSSOR(SubscriptionTests.java:172)
-  sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-  sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-  sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-  java.lang.reflect.Method.invoke(Method.java:497)
-  org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-  org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
-  org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
-  org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
-  org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-  org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-  org.testng.TestRunner.privateRun(TestRunner.java:771)
-  org.testng.TestRunner.run(TestRunner.java:621)
-  org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
-  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
-  org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
-  org.testng.SuiteRunner.run(SuiteRunner.java:259)
-  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-  org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
-  org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
-  org.testng.TestNG.run(TestNG.java:1032)
-  org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
-  org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
-  org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"xpath","selector":"//*[@id='reg-overlay']/div/div[2]/p"}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
-System info: host: 'U3-DPE-CPB-0153', ip: '10.20.121.78', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
-Driver info: driver.version: unknown
-  <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/gauravs/AppData/Local/Temp/anonymous5506769432026864094webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
-  <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/gauravs/AppData/Local/Temp/anonymous5506769432026864094webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:625)
-]]>
-      </failure>
-
-          </testcase>
   
   
-  
+            <testcase name="BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithNonSSOR" time="103.695" classname="com.dss.test.dss.subscription.SubscriptionTests" />
+                <testcase name="BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithNonSSOR" time="81.235" classname="com.dss.test.dss.subscription.SubscriptionTests" />
+                <testcase name="BuydigitalPlusSubscriptionWithSSOR" time="96.910" classname="com.dss.test.dss.subscription.SubscriptionTests" />
+                <testcase name="BuydigitalPlusSubscriptionWithNonSSOR" time="102.636" classname="com.dss.test.dss.subscription.SubscriptionTests" />
+                <testcase name="BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithSSOR" time="122.670" classname="com.dss.test.dss.subscription.SubscriptionTests" />
+                <testcase name="BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithSSOR" time="99.758" classname="com.dss.test.dss.subscription.SubscriptionTests" />
+      
 </testsuite>

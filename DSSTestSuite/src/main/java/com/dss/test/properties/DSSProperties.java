@@ -19,6 +19,7 @@ public class DSSProperties {
 	public static final String CONTINUE_READING = "Continue reading";
 	public static final String LOGIN_TO_CONTINUE = "Log In To Continue";
 	
+	public static final String SOURCE_PATH = "C:\\Users\\gauravs\\git\\DSSTestSuite\\DSSTestSuite\\test-output";
 	public static final String SOURCE_FOLDER = "C:\\Users\\gauravs\\git\\DSSTestSuite\\DSSTestSuite\\test-output\\html";
 	public static final String DESTINATION_FOLDER_NAME = "C:\\Users\\gauravs\\git\\DSSTestSuite\\DSSTestSuite\\test-output\\html.zip";
 		

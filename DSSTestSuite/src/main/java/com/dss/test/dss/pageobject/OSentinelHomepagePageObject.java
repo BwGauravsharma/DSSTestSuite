@@ -7,10 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * ------- OSentinelHomepagePageObject -------
- * Author: QA-DART
- * Created on: 18-May-2016
- * History of Changes: Page Object for OS Homepage
+ * ------- OSentinelHomepagePageObject ------- Author: QA-DART Created on:
+ * 18-May-2016 History of Changes: Page Object for OS Homepage
  */
 public class OSentinelHomepagePageObject extends LandingPageObject {
 
@@ -32,11 +30,30 @@ public class OSentinelHomepagePageObject extends LandingPageObject {
 
 	public String getThankYouPanelMessage() throws InterruptedException {
 
-		Thread.sleep(10000);
+		Thread.sleep(5000);
+		String ThankYouMsg = null;
 
-		String ThankYouMsg = driver.findElement(By.xpath("//*[@id='reg-overlay']/div/div[2]/p")).getText();
+		if (driver.findElement(By.xpath("html/body/header/div[2]/ul/li[1]/a")).isDisplayed()) {
 
-		driver.findElement(By.xpath("//*[@id='reg-overlay']/div/div[2]/div[2]/div")).click();
+			while (true) {
+
+				driver.navigate().refresh();
+				if (driver.findElement(By.xpath("//*[@id='reg-overlay']/div")) != null) {
+
+					ThankYouMsg = driver.findElement(By.xpath("//*[@id='reg-overlay']/div/div[2]/p")).getText();
+
+					driver.findElement(By.xpath("//*[@id='reg-overlay']/div/div[2]/div[2]/div")).click();
+
+					break;
+				}
+			}
+
+		} else {
+
+			ThankYouMsg = driver.findElement(By.xpath("//*[@id='reg-overlay']/div/div[2]/p")).getText();
+
+			driver.findElement(By.xpath("//*[@id='reg-overlay']/div/div[2]/div[2]/div")).click();
+		}
 
 		return ThankYouMsg;
 

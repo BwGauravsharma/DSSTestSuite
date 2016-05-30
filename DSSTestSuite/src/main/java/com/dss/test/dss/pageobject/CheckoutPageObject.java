@@ -8,9 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.dss.test.properties.DSSProperties;
 
 /**
- * ------- CheckoutPageObject ------- 
- * Author: QA-DART 
- * Created on: 17-May-2016
+ * ------- CheckoutPageObject ------- Author: QA-DART Created on: 17-May-2016
  * History of Changes: Parent Class for DSS Checkout Page
  */
 public abstract class CheckoutPageObject {
@@ -34,8 +32,10 @@ public abstract class CheckoutPageObject {
 
 	public void enterDigitalAccessSSOR(String SSOREmail) throws InterruptedException {
 
-		driver.findElement(By.xpath("//*[@id='digitalAccess']/div[2]/div/div[1]/input")).clear();
-		driver.findElement(By.xpath("//*[@id='digitalAccess']/div[2]/div/div[1]/input")).sendKeys(SSOREmail);
+		driver.findElement(By.cssSelector("#digitalAccess > div:nth-of-type(2) > div > div:nth-of-type(1) > input"))
+				.clear();
+		driver.findElement(By.cssSelector("#digitalAccess > div:nth-of-type(2) > div > div:nth-of-type(1) > input"))
+				.sendKeys(SSOREmail);
 
 		Thread.sleep(5000);
 
@@ -45,8 +45,10 @@ public abstract class CheckoutPageObject {
 
 	public void enterDigitalAccessNonSSOR(String NonSSOREmail, String password, String Confpassword) {
 
-		driver.findElement(By.xpath("//*[@id='digitalAccess']/div[2]/div/div[1]/input")).clear();
-		driver.findElement(By.xpath("//*[@id='digitalAccess']/div[2]/div/div[1]/input")).sendKeys(NonSSOREmail);
+		driver.findElement(By.cssSelector("#digitalAccess > div:nth-of-type(2) > div > div:nth-of-type(1) > input"))
+				.clear();
+		driver.findElement(By.cssSelector("#digitalAccess > div:nth-of-type(2) > div > div:nth-of-type(1) > input"))
+				.sendKeys(NonSSOREmail);
 
 		driver.findElement(By.xpath("//*[@id='digitalAccess']/div[2]/div/div[2]/input")).clear();
 		driver.findElement(By.xpath("//*[@id='digitalAccess']/div[2]/div/div[2]/input")).sendKeys(password);
@@ -61,15 +63,23 @@ public abstract class CheckoutPageObject {
 	public void payWithCreditCard(String name, String cardNumber, String Month, String Year)
 			throws InterruptedException {
 
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[1]/div[1]/input")).clear();
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[1]/div[1]/input")).sendKeys(name);
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[1]/div[2]/input")).click();
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[1]/div[2]/input")).sendKeys(cardNumber);
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(1) > input"))
+				.clear();
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(1) > input"))
+				.sendKeys(name);
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(2) > input"))
+				.clear();
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(2) > input"))
+				.sendKeys(cardNumber);
 
-		Select monthDDN = new Select(
-				driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[1]/div[3]/select[1]")));
-		Select yearDDN = new Select(
-				driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[1]/div[3]/select[2]")));
+		Select monthDDN = new Select(driver.findElement(By.cssSelector(
+				"#payment > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > select:nth-of-type(1)")));
+		Select yearDDN = new Select(driver.findElement(By.cssSelector(
+				"#payment > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > select:nth-of-type(2)")));
 
 		monthDDN.selectByVisibleText(Month);
 		yearDDN.selectByVisibleText(Year);
@@ -80,18 +90,33 @@ public abstract class CheckoutPageObject {
 
 	}
 
-	public void payWithMyBankAccount(String BankName, String AccountNumber, String RoutingNumber) {
+	public void payWithMyBankAccount(String BankName, String AccountNumber, String RoutingNumber)
+			throws InterruptedException {
+
+		Thread.sleep(2000);
 
 		driver.findElement(By.linkText("Pay with my Bank Account")).click();
 
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[2]/div[1]/input")).clear();
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[2]/div[1]/input")).sendKeys(BankName);
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(1) > input"))
+				.clear();
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(1) > input"))
+				.sendKeys(BankName);
 
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[2]/div[2]/input")).clear();
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[2]/div[2]/input")).sendKeys(AccountNumber);
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > input"))
+				.clear();
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > input"))
+				.sendKeys(AccountNumber);
 
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[2]/div[3]/input")).clear();
-		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/div[2]/div[3]/input")).sendKeys(RoutingNumber);
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(3) > input"))
+				.clear();
+		driver.findElement(
+				By.cssSelector("#payment > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(3) > input"))
+				.sendKeys(RoutingNumber);
 
 		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/a")).click();
 
@@ -99,6 +124,8 @@ public abstract class CheckoutPageObject {
 
 	public void enterAddressWhenBillingAndDeliveryInformationSame(String firstName, String lastName, String address1,
 			String address2, String zip, String city, String state, String phone) throws InterruptedException {
+
+		Thread.sleep(2000);
 
 		Select stateDDN = new Select(driver
 				.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[2]/div[2]/select")));
@@ -111,11 +138,15 @@ public abstract class CheckoutPageObject {
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[1]/input")).clear();
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[1]/input")).sendKeys(zip);
 
+		Thread.sleep(2000);
+
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[2]/div[1]/input")).clear();
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[2]/div[1]/input"))
 				.sendKeys(city);
 
 		stateDDN.selectByVisibleText(state);
+
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[5]/input")).clear();
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[5]/input")).sendKeys(phone);
@@ -174,6 +205,7 @@ public abstract class CheckoutPageObject {
 
 	public void placeOrder() throws InterruptedException {
 
+		Thread.sleep(2000);
 		WebElement placeOrderbtn = driver.findElement(By.xpath("//*[@id='placeOrder']/div[2]/div/div[4]/a[1]/span"));
 		Actions actions = new Actions(driver);
 		actions.moveToElement(placeOrderbtn).click().build().perform();

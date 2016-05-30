@@ -26,15 +26,16 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.testng.reporters.jq.TestNgXmlPanel;
+
 import com.dss.test.properties.DSSProperties;
+import com.thoughtworks.selenium.condition.JUnitConditionRunner;
 
 /**
  * ------- DSSUtilities ------- Author: QA-DART Created on: May 23, 2016 History
  * of Changes:
  */
 public class DSSUtilities {
-	
-	
 
 	public void sendEmailReport(String frmAddress, String toAddress, String subject, String message)
 			throws AddressException, MessagingException {
@@ -88,50 +89,64 @@ public class DSSUtilities {
 
 	}
 
-			  public void zipFolder(String srcFolder, String destZipFile) throws Exception {
-    		    ZipOutputStream zip = null;
-    		    FileOutputStream fileWriter = null;
+	public void zipFolder(String srcFolder, String destZipFile) throws Exception {
+		
+		
+		ZipOutputStream zip = null;
+		FileOutputStream fileWriter = null;
 
-    		    fileWriter = new FileOutputStream(destZipFile);
-    		    zip = new ZipOutputStream(fileWriter);
+		fileWriter = new FileOutputStream(destZipFile);
+		zip = new ZipOutputStream(fileWriter);
+		
+		addFolderToZip(DSSProperties.SOURCE_PATH, srcFolder, zip);
+		zip.flush();
+		zip.close();
+	}
 
-    		    addFolderToZip("C:\\Users\\gauravs\\git\\DSSTestSuite\\DSSTestSuite\\test-output\\html", srcFolder, zip);
-    		    zip.flush();
-    		    zip.close();
-    		  }
+	public void addFileToZip(String path, String srcFile, ZipOutputStream zip) throws Exception {
 
-    		  public void addFileToZip(String path, String srcFile, ZipOutputStream zip)
-    		      throws Exception {
+		File folder = new File(srcFile);
+		if (folder.isDirectory()) {
+			addFolderToZip(path, srcFile, zip);
+		} else {
+			byte[] buf = new byte[1024];
+			int len;
+			FileInputStream in = new FileInputStream(srcFile);
+			zip.putNextEntry(new ZipEntry(path + "/" + folder.getName()));
+			while ((len = in.read(buf)) > 0) {
+				zip.write(buf, 0, len);
+			}
+		}
+	}
 
-    		    File folder = new File(srcFile);
-    		    if (folder.isDirectory()) {
-    		      addFolderToZip(path, srcFile, zip);
-    		    } else {
-    		      byte[] buf = new byte[1024];
-    		      int len;
-    		      FileInputStream in = new FileInputStream(srcFile);
-    		      zip.putNextEntry(new ZipEntry(path + "/" + folder.getName()));
-    		      while ((len = in.read(buf)) > 0) {
-    		        zip.write(buf, 0, len);
-    		      }
-    		    }
-    		  }
-
-    		  public void addFolderToZip(String path, String srcFolder, ZipOutputStream zip)
-    		      throws Exception {
-    		    File folder = new File(srcFolder);
-
-    		    for (String fileName : folder.list()) {
-    		      if (path.equals("")) {
-    		        addFileToZip(folder.getName(), srcFolder + "/" + fileName, zip);
-    		      } else {
-    		        addFileToZip(path + "/" + folder.getName(), srcFolder + "/" + fileName, zip);
-    		      }
-    		    }
-    		  }
-    	
-    	
-    	
-    
+	public void addFolderToZip(String path, String srcFolder, ZipOutputStream zip) throws Exception {
+		
+		
+		File folder = new File(srcFolder);
+		
+		for (String fileName : folder.list()) {
+			if (path.equals("")) {
+				addFileToZip(folder.getName(), srcFolder + "/" + fileName, zip);
+			} else {
+				addFileToZip(path + "/" + folder.getName(), srcFolder + "/" + fileName, zip);
+			}
+		}
+	}
+	
+	
+	 /*public static void main(String arg[]) throws Exception { 
+		 
+		 
+		 DSSUtilities util = new DSSUtilities();
+		 
+		 util.zipFolder(DSSProperties.SOURCE_FOLDER, DSSProperties.DESTINATION_FOLDER_NAME);
+		 util.sendEmailReport(DSSProperties.FromAddress, DSSProperties.ToAddress, DSSProperties.SubjectLine, DSSProperties.BodyMessage);
+		 
+		 
+	 }*/
+	
+	
+	
+	
 
 }

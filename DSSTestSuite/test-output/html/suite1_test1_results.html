@@ -3,32 +3,109 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang="">
 <head>
-  <title>Test Results Report - DSS-Regression</title>
+  <title>Test Results Report - DSS-Regression With Chrome</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta name="description" content="TestNG unit test results." />
   <link href="reportng.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="reportng.js"></script>
 </head>
 <body>
-<h1>DSS-Regression</h1>
+<h1>DSS-Regression With Chrome</h1>
 <p>
-  Test duration: 195.134s
+  Test duration: 673.377s
 </p>
 
 
 
+
+
   <table class="resultsTable">
-    <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
+    <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
           <tr>
         <td colspan="3" class="group">com.dss.test.dss.subscription.SubscriptionTests</td>
       </tr>
             
 <tr>
   <td class="method">
+                  BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithNonSSOR
+      </td>
+  <td class="duration">
+    103.695s
+  </td>
+  <td class="result">
+        
+          <i>Method arguments: </i><span class="arguments">"90012", "tribune1", "TestCreditCard", "4111 1111 1111 1111", "05 - May", "2018", "James", "Hogger", "125 nimes rd st church", "", "32801", "Orlando", "FL", "651-628-4488"</span><br />
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithSSOR
+      </td>
+  <td class="duration">
+    122.670s
+  </td>
+  <td class="result">
+        
+          <i>Method arguments: </i><span class="arguments">"90012", "jan12@gmail.com", "USSA", "1236547895", "071923909", "James", "Hogger", "125 nimes rd st church", "", "32801", "Orlando", "FL", "651-628-4488", "tribune1"</span><br />
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithNonSSOR
+      </td>
+  <td class="duration">
+    81.235s
+  </td>
+  <td class="result">
+        
+          <i>Method arguments: </i><span class="arguments">"32801", "tribune1", "USSA", "1236547895", "071923909", "James", "Hogger", "125 nimes rd st church", "", "32801", "Orlando", "FL", "651-628-4488"</span><br />
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithSSOR
+      </td>
+  <td class="duration">
+    99.758s
+  </td>
+  <td class="result">
+        
+          <i>Method arguments: </i><span class="arguments">"32801", "jan12@gmail.com", "TestCreditCard", "4111 1111 1111 1111", "05 - May", "2018", "James", "Hogger", "125 nimes rd st church", "", "32801", "Orlando", "FL", "651-628-4488", "tribune1"</span><br />
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
+                  BuydigitalPlusSubscriptionWithNonSSOR
+      </td>
+  <td class="duration">
+    102.636s
+  </td>
+  <td class="result">
+        
+          <i>Method arguments: </i><span class="arguments">"Digital Saver", "tribune1", "USSA", "1236547895", "071923909", "James", "Hogger", "125 nimes rd st church", "", "32801", "Orlando", "FL", "651-628-4488"</span><br />
+    
+        
+
+      </td>
+</tr>
+<tr>
+  <td class="method">
                   BuydigitalPlusSubscriptionWithSSOR
       </td>
   <td class="duration">
-    137.638s
+    96.910s
   </td>
   <td class="result">
         
@@ -36,68 +113,9 @@
     
         
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;reg-overlay&apos;]/div/div[2]/p&quot;}<br/>
-Command duration or timeout: 30.82 seconds<br/>
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html<br/>
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;<br/>
-System info: host: &apos;U3-DPE-CPB-0153&apos;, ip: &apos;10.20.121.78&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_45&apos;<br/>
-Driver info: org.openqa.selenium.firefox.FirefoxDriver<br/>
-Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=40.0.3, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]<br/>
-Session ID: e50107ab-4999-40b2-a47d-c66fe1699b96<br/>
-*** Element info: {Using=xpath, value=//*[@id=&apos;reg-overlay&apos;]/div/div[2]/p}</b></a><br />
-    <div class="stackTrace" id="exception-0">
-              sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)<br />
-              sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)<br />
-              sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)<br />
-              java.lang.reflect.Constructor.newInstance(Constructor.java:422)<br />
-              org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)<br />
-              org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)<br />
-              org.openqa.selenium.By$ByXPath.findElement(By.java:361)<br />
-              org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)<br />
-              com.dss.test.dss.pageobject.OSentinelHomepagePageObject.getThankYouPanelMessage(OSentinelHomepagePageObject.java:37)<br />
-              com.dss.test.dss.subscription.SubscriptionTests.BuydigitalPlusSubscriptionWithSSOR(SubscriptionTests.java:172)<br />
-              sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-              sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-              sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-              java.lang.reflect.Method.invoke(Method.java:497)<br />
-              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)<br />
-              org.testng.internal.Invoker.invokeMethod(Invoker.java:659)<br />
-              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)<br />
-              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)<br />
-              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)<br />
-              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)<br />
-              org.testng.TestRunner.privateRun(TestRunner.java:771)<br />
-              org.testng.TestRunner.run(TestRunner.java:621)<br />
-              org.testng.SuiteRunner.runTest(SuiteRunner.java:357)<br />
-              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)<br />
-              org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)<br />
-              org.testng.SuiteRunner.run(SuiteRunner.java:259)<br />
-              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
-              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
-              org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)<br />
-              org.testng.TestNG.runSuitesLocally(TestNG.java:1124)<br />
-              org.testng.TestNG.run(TestNG.java:1032)<br />
-              org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)<br />
-              org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)<br />
-              org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)<br />
-                    <b>Caused by: </b> <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse">org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&apos;reg-overlay&apos;]/div/div[2]/p&quot;}<br/>
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html<br/>
-Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;<br/>
-System info: host: &apos;U3-DPE-CPB-0153&apos;, ip: &apos;10.20.121.78&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_45&apos;<br/>
-Driver info: driver.version: unknown</a><br />
-        <div class="stackTrace" id="exception-1">
-                      &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/gauravs/AppData/Local/Temp/anonymous5506769432026864094webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)<br />
-                      &lt;anonymous class&gt;.fxdriver.Timer.prototype.setTimeout/&lt;.notify(file:///C:/Users/gauravs/AppData/Local/Temp/anonymous5506769432026864094webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:625)<br />
-                  </div>
-          </div>
       </td>
 </tr>
       </table>
-
-
   
 </body>
 </html>
