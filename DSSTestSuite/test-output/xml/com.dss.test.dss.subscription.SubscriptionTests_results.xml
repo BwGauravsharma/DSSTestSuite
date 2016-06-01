@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DSS-Regression With Chrome"
-           tests="6"
+<testsuite name="DSS-Regression With Firefox"
+           tests="1"
            failures="0"
            errors="0"
            skipped="0"
-           time="606.904">
+           time="111.019">
   <properties />
   
   
-            <testcase name="BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithNonSSOR" time="103.695" classname="com.dss.test.dss.subscription.SubscriptionTests" />
-                <testcase name="BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithNonSSOR" time="81.235" classname="com.dss.test.dss.subscription.SubscriptionTests" />
-                <testcase name="BuydigitalPlusSubscriptionWithSSOR" time="96.910" classname="com.dss.test.dss.subscription.SubscriptionTests" />
-                <testcase name="BuydigitalPlusSubscriptionWithNonSSOR" time="102.636" classname="com.dss.test.dss.subscription.SubscriptionTests" />
-                <testcase name="BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithSSOR" time="122.670" classname="com.dss.test.dss.subscription.SubscriptionTests" />
-                <testcase name="BuyPrintPlusDigitalSubscriptionWithinAreaZIPWithSSOR" time="99.758" classname="com.dss.test.dss.subscription.SubscriptionTests" />
+            <testcase name="BuyPrintPlusDigitalSubscriptionOutSideAreaZIPWithNonSSOR" time="111.019" classname="com.dss.test.dss.subscription.SubscriptionTests" />
       
 </testsuite>

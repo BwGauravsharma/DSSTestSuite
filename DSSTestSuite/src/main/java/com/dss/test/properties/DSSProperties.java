@@ -10,6 +10,8 @@ public class DSSProperties {
 
 	public static final String URL = "http://nguxbeta:nguxtr!b@ngux.orlandosentinel.stage.tribdev.com/";
 	
+	public static final String hubUrl = "http://10.20.121.78:4444/wd/hub";
+	
 	// Subscriptions: Digital, Digital Super Saver, Digital Saver
 	public static final String DIGITAL = "digital";
 	public static final String DIGITAL_SUPER_SAVER = "digital_super_saver";
@@ -27,5 +29,10 @@ public class DSSProperties {
 	 public static final String ToAddress = "gaurav.sharma@bitwiseglobal.com";
 	 public static final String SubjectLine = "DSS Regression Report";
 	 public static final String BodyMessage = "Please find the attached DSS regression test result report.";
+	 
+	 public static final String OutsideAreaZipValidationActualMesssage = "You are outside our delivery area. But you can still get Unlimited Digital Access.";
 	
+	 public static final String ActualThankYouMessage ="Welcome to orlandosentinel.com. You are now subscribed.";
+	 
+	 
 }

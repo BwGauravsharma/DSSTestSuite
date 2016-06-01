@@ -46,18 +46,33 @@ public class OSentinelSubscriptionPageObject {
     }
 
     // Out of Florida: {Print + digitalPLUS Access}
-    public OSentinelCheckoutPageObject addPrintDigitalPlusAccessOutsideArea(String outsideZip) {
+    public OSentinelCheckoutPageObject proceedWithTryDigital() {
 
 	WebDriverWait wait;
-
-	driver.findElement(By.id("exampleInputEmail1")).sendKeys(outsideZip);
-	driver.findElement(By.linkText("See Available Options")).click();
+	
 	wait = new WebDriverWait(driver, 2);
 	wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.linkText("Try Digital")));
+	
 	driver.findElement(By.linkText("Try Digital")).click();
 
 	return new OSentinelCheckoutPageObject(driver);
 
+    }
+    
+    
+    public String availableOptionsForOutsideAreaZip(String outsideZip) throws InterruptedException{
+    	
+    	String OutsideAreaZIPValidationMsg;
+    	
+    	driver.findElement(By.id("exampleInputEmail1")).sendKeys(outsideZip);
+    	driver.findElement(By.linkText("See Available Options")).click();
+    	
+    	Thread.sleep(2000);
+    	
+    	OutsideAreaZIPValidationMsg = driver.findElement(By.xpath("//*[@id='templateContainer']/div/div/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div[2]/div[2]/div[1]/p")).getText();
+    	
+    	return OutsideAreaZIPValidationMsg;
+    	
     }
 
 }

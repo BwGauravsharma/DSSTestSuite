@@ -3,22 +3,18 @@
 <suite name="Suite" thread-count="2" parallel="tests">
 
 	<listeners>
-		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-
+		<listener class-name="com.dss.test.reporter.DSSTestReporter" />
 	</listeners>
 
-	<!-- <test name="DSS-Regression With Firefox"> <parameter name="browser" 
+<!-- 	<test name="DSS-Regression With Firefox"> <parameter name="browser" 
 		value="firefox" /> <parameter name="version" value="40.0.3" /> <classes> 
 		<class name="com.dss.test.dss.subscription.SubscriptionTests" /> </classes> 
 		</test> -->
 
 
 	<test name="DSS-Regression With Chrome">
-
 		<parameter name="browser" value="chrome" />
 		<parameter name="version" value="45" />
-
 		<classes>
 			<class name="com.dss.test.dss.subscription.SubscriptionTests" />
 		</classes>

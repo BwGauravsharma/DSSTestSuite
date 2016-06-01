@@ -26,6 +26,10 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.apache.maven.surefire.shade.org.apache.maven.shared.utils.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.reporters.jq.TestNgXmlPanel;
 
 import com.dss.test.properties.DSSProperties;
@@ -131,6 +135,35 @@ public class DSSUtilities {
 				addFileToZip(path + "/" + folder.getName(), srcFolder + "/" + fileName, zip);
 			}
 		}
+	}
+	
+	
+	public String captureScrenshot(WebDriver driver, String screenshotName){
+		
+		
+		try{
+			
+			TakesScreenshot ts = (TakesScreenshot)driver;
+			File source = ts.getScreenshotAs(OutputType.FILE);
+			
+			String dest = "C:\\Screenshots\\"+screenshotName+".png";
+			
+			File destination = new File(dest);
+			FileUtils.copyFile(source, destination);
+			
+			System.out.println("Screenshot Taken");
+			
+			return dest;
+			
+		} catch (Exception e){
+			
+			System.out.println("Exception while taking screenshot"+e.getMessage());
+			return e.getMessage();
+			
+		}
+		
+		
+		
 	}
 	
 	

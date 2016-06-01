@@ -37,7 +37,7 @@ public abstract class CheckoutPageObject {
 		driver.findElement(By.cssSelector("#digitalAccess > div:nth-of-type(2) > div > div:nth-of-type(1) > input"))
 				.sendKeys(SSOREmail);
 
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.findElement(By.xpath("//*[@id='digitalAccess']/div[2]/div/a")).click();
 
@@ -84,7 +84,7 @@ public abstract class CheckoutPageObject {
 		monthDDN.selectByVisibleText(Month);
 		yearDDN.selectByVisibleText(Year);
 
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 
 		driver.findElement(By.xpath("//*[@id='payment']/div[2]/div/a")).click();
 
@@ -93,7 +93,7 @@ public abstract class CheckoutPageObject {
 	public void payWithMyBankAccount(String BankName, String AccountNumber, String RoutingNumber)
 			throws InterruptedException {
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		driver.findElement(By.linkText("Pay with my Bank Account")).click();
 
@@ -125,7 +125,7 @@ public abstract class CheckoutPageObject {
 	public void enterAddressWhenBillingAndDeliveryInformationSame(String firstName, String lastName, String address1,
 			String address2, String zip, String city, String state, String phone) throws InterruptedException {
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		Select stateDDN = new Select(driver
 				.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[2]/div[2]/select")));
@@ -138,7 +138,7 @@ public abstract class CheckoutPageObject {
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[1]/input")).clear();
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[1]/input")).sendKeys(zip);
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[2]/div[1]/input")).clear();
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[4]/div[2]/div[1]/input"))
@@ -146,12 +146,12 @@ public abstract class CheckoutPageObject {
 
 		stateDDN.selectByVisibleText(state);
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[5]/input")).clear();
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/div[1]/div[2]/div[5]/input")).sendKeys(phone);
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		driver.findElement(By.xpath("//*[@id='address']/div[2]/div/a")).click();
 
@@ -205,12 +205,12 @@ public abstract class CheckoutPageObject {
 
 	public void placeOrder() throws InterruptedException {
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		WebElement placeOrderbtn = driver.findElement(By.xpath("//*[@id='placeOrder']/div[2]/div/div[4]/a[1]/span"));
 		Actions actions = new Actions(driver);
 		actions.moveToElement(placeOrderbtn).click().build().perform();
 
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 
 		actions.moveToElement(placeOrderbtn).click().build().perform();
 
@@ -228,7 +228,7 @@ public abstract class CheckoutPageObject {
 	// for email, password
 	public void navigateToHomepageStory(String email, String password) throws InterruptedException {
 
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 
 		WebElement logInToContinueBtn = driver.findElement(By.xpath("//*[@id='confirm']/a[2]"));
 		WebElement continueReadingBtn = driver.findElement(By.xpath("//*[@id='confirm']/a[1]"));
@@ -236,7 +236,7 @@ public abstract class CheckoutPageObject {
 		// SSOR:
 		if ((logInToContinueBtn != null) && (logInToContinueBtn.getText().equals(DSSProperties.LOGIN_TO_CONTINUE))) {
 
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 
 			logInToContinueBtn.click();
 
