@@ -34,5 +34,7 @@ public class DSSProperties {
 	
 	 public static final String ActualThankYouMessage ="Welcome to orlandosentinel.com. You are now subscribed.";
 	 
+	 public static final String ExtentReportPath = "C:\\DSSTestReport\\DSSTestAutomationReport.html";
+	 
 	 
 }

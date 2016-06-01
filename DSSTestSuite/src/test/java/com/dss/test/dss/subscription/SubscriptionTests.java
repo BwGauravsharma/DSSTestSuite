@@ -44,7 +44,7 @@ public class SubscriptionTests {
 	private OSentinelCheckoutPageObject OSCheckoutPage;
 	private DSSUtilities util;
 
-	private ExtentReports report = new ExtentReports("C:\\DSSTestReport\\DSSTestAutomationReport.html");
+	private ExtentReports report = new ExtentReports(DSSProperties.ExtentReportPath);
 
 	@Parameters({ "browser", "version" })
 	@BeforeMethod(alwaysRun = true)
