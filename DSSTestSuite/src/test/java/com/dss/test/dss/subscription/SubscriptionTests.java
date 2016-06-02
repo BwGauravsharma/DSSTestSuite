@@ -1,6 +1,20 @@
 package com.dss.test.dss.subscription;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 import com.dss.test.dataproviders.DSSDataProvider;
 import com.dss.test.dss.pageobject.OSentinelCheckoutPageObject;
 import com.dss.test.dss.pageobject.OSentinelHomepagePageObject;
@@ -12,22 +26,6 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import junit.framework.Assert;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-
-import org.testng.annotations.BeforeMethod;
-
-import org.testng.annotations.Parameters;
 
 /**
  * ------- SubscriptionTests ------- Author: QA-DART Created on: 17-May-2016

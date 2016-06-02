@@ -210,7 +210,7 @@ public abstract class CheckoutPageObject {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(placeOrderbtn).click().build().perform();
 
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		actions.moveToElement(placeOrderbtn).click().build().perform();
 
@@ -228,7 +228,7 @@ public abstract class CheckoutPageObject {
 	// for email, password
 	public void navigateToHomepageStory(String email, String password) throws InterruptedException {
 
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 
 		WebElement logInToContinueBtn = driver.findElement(By.xpath("//*[@id='confirm']/a[2]"));
 		WebElement continueReadingBtn = driver.findElement(By.xpath("//*[@id='confirm']/a[1]"));
@@ -258,6 +258,7 @@ public abstract class CheckoutPageObject {
 
 		if ((continueReadingBtn != null) && (continueReadingBtn.getText().equals(DSSProperties.CONTINUE_READING))) {
 
+			Thread.sleep(2000);
 			continueReadingBtn.click();
 		}
 
